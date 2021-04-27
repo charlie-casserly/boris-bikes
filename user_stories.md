@@ -17,5 +17,6 @@
 | Dock     | release_bike     |
 
 person -- bike(check) -----false --- end
+
                       -----true ------ dock(release)
                                                  
