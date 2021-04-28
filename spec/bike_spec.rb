@@ -1,4 +1,4 @@
-require "docking_station"
+require "bike"
 
 describe Bike do
   
