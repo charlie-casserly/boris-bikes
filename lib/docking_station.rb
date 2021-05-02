@@ -1,4 +1,6 @@
 require_relative 'bike'
+require_relative 'van'
+require_relative 'garage'
 
 class DockingStation
   attr_accessor :capacity
@@ -15,7 +17,7 @@ class DockingStation
     counter = -1
     while counter < bikes.length
       fail "No working bikes available" if bikes[counter] == nil
-      unless bikes[counter].broken
+      if bikes[counter].working?
         return bikes.delete_at(counter)
       end
       counter += -1
