@@ -6,18 +6,26 @@ class Van
   end
 
   def collect(station)
-    station.bikes.each { |bike| bikes << bike if !bike.working? }
+    station.bikes.delete_if do |bike| 
+      bikes << bike if !bike.working?
+    end
   end
 
   def return_bikes(station)
-    bikes.each { |bike| station.bikes << bike if bike.working? }
+    bikes.delete_if do |bike|
+      station.bikes << bike if bike.working?
+    end
   end
 
   def deposit(garage)
-    bikes.each { |bike| garage.bikes << bike if !bike.working? }
+    bikes.delete_if do |bike| 
+      garage.bikes << bike if !bike.working?
+    end 
   end
 
   def pick_up(garage)
-    garage.bikes.each { |bike| bikes << bike if bike.working? }
+    garage.bikes.delete_if do |bike| 
+      bikes << bike if bike.working?
+    end
   end
 end
